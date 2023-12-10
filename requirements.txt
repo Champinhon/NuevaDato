@@ -1,0 +1,12 @@
+django
+Django
+openai
+langchain
+xhtml2pdf
+django-storages
+google-cloud-storage
+tiktoken
+PyPDF2
+python-dotenv
+faiss-cpu
+langchain-experimental

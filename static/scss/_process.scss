@@ -1,0 +1,118 @@
+//
+// counter.scss
+//
+
+.process-box {
+  i {
+    font-size: 48px;
+    line-height: 72px;
+  }
+  .process-left-icon {
+    content: "";
+    position: absolute;
+    top: 10px;
+    background-color: $dark;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    
+  }
+}
+
+.plan-line {
+  &:before {
+    content: "";
+    border: 1px dashed var(--bs-border-color);
+    position: absolute;
+    width: 67%;
+    left: 65%;
+    top: 50px;
+  }
+}
+
+.process-left-icon-1 i,
+.process-left-icon-2 i {
+  font-size: 35px;
+  border-radius: 50%;
+  position: absolute;
+  top: 83px;
+  color: $white;
+  z-index: 9;
+}
+
+.process-left-icon-1 {
+  i {
+    left: 63%;
+  }
+}
+
+.process-left-icon-2 {
+  i {
+    left: 30%;
+  }
+}
+.process-left-icon-3 i,
+.process-left-icon-4 i{
+  display: none;
+}
+
+
+
+[dir=rtl]{
+.process-box {
+  i {
+    font-size: 48px;
+    line-height: 72px;
+  }
+
+  .process-left-icon {
+    content: "";
+    position: absolute;
+    top: 10px;
+    background-color: $dark;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+  
+  }
+}
+
+.plan-line {
+  &:before {
+    content: "";
+    border: 1px dashed var(--bs-border-color);
+    position: absolute;
+    width: 67%;
+    left: -33%;
+    top: 50px;
+  }
+}
+
+.process-left-icon-3 i,
+.process-left-icon-4 i {
+  font-size: 35px;
+  border-radius: 50%;
+  position: absolute;
+  top: 83px;
+  color: $white;
+  z-index: 9;
+  display: block;
+ 
+}
+
+.process-left-icon-3 {
+  i {
+    left: 30%;
+  }
+}
+
+.process-left-icon-4 {
+  i {
+    left: 64%;
+  }
+}
+.process-left-icon-1 i,
+.process-left-icon-2 i{
+  display: none;
+}
+}

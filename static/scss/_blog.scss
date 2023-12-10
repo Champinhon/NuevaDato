@@ -1,0 +1,21 @@
+//
+// blog.scss
+//
+
+.blog-box {
+  .blog-title {
+    color:var(--bs-body-color);
+    transition: all 0.5s;
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  .read-btn {
+    font-size: 15px;
+    color: $primary;
+    &:hover {
+      color: var(--bs-body-color)!important;
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{% load static %}
+
+{% block styleSwitcher %}
+<!-- Style switcher -->
+<div id="style-switcher">
+    <div>
+        <h3 class="">Select your color</h3>
+        <ul class="pattern">
+            <li>
+                <a class="color1" href="javascript: void(0);" onclick="setColor('red')"></a>
+            </li>
+            <li>
+                <a class="color2" href="javascript: void(0);" onclick="setColor('green')"></a>
+            </li>
+            <li>
+                <a class="color3" href="javascript: void(0);" onclick="setColor('pink')"></a>
+            </li>
+            <li>
+                <a class="color4" href="javascript: void(0);" onclick="setColor('cyan')"></a>
+            </li>
+            <li>
+                <a class="color5" href="javascript: void(0);" onclick="setColor('purple')"></a>
+            </li>
+            <li>
+                <a class="color6" href="javascript: void(0);" onclick="setColor('blue')"></a>
+            </li>
+            <li>
+                <a class="color7" href="javascript: void(0);" onclick="setColor('orange')"></a>
+            </li>
+            <li>
+                <a class="color8" href="javascript: void(0);" onclick="setColor('yellow')"></a>
+            </li>
+        </ul>
+    </div>
+    <div class="bottom">
+        <a href="javascript: void(0);" id="mode" class="mode-btn text-white">
+            <i class="mdi mdi-white-balance-sunny mode-light align-middle"></i>
+            <i class="mdi mdi-weather-sunny mode-dark align-middle"></i>
+        </a>
+        <a href="javascript: void(0);" class="settings" onclick="toggleSwitcher()"><i
+                class="mdi mdi-cog  mdi-spin"></i></a>
+    </div>
+</div>
+<!-- end Style switcher -->
+{% endblock styleSwitcher %}

@@ -1,0 +1,28 @@
+{% load static %}
+
+{% block aboutus %}   
+
+    <!--END ABOUT US-->
+    <section class="section bg-light" id="features">
+        <div class="container">
+            <div class="row vertical-content">
+                <div class="col-lg-5">
+                    <div class="features-box">
+                        <h3>Sin descargar nada!</h3>
+                        <p class="text-muted web-desc">En nuestro sistema no necesitas descagar nada.</p>
+                        <ul class="text-muted list-unstyled mt-4 features-item-list">
+                            <li class="">Todo se queda en la nube.</li>
+                            <li class="">De forma eficiente y segura.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="features-img features-right text-end">
+                        <img src="{% static 'images/online-world.svg' %}" alt="macbook image" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--END ABOUT US-->
+{% endblock aboutus %}

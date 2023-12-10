@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="">
+
+<head>
+    <meta charset="utf-8" />
+    <title>NuevaDato</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Premium Bootstrap 5 Landing Page Template" />
+    <meta name="keywords" content="bootstrap 5, premium, marketing, multipurpose" />
+    <meta content="Themesbrand" name="author" />
+    <!-- favicon -->
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" />
+    <!-- css -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+    <!-- icon -->
+    <link href="{% static 'css/materialdesignicons.min.css' %}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/pe-icon-7-stroke.css' %}" />
+
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/colors/red.css' %}" id="color-opt">
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="65">
+
+    {% block navbar %}
+        {% include 'partials/navbar.html' %}
+    {% endblock navbar %}
+
+    {% block home %}
+    {% endblock home %} 
+
+    {% block services %}
+        {% include 'partials/services.html' %}
+    {% endblock services %}
+
+    {% block aboutus %}
+        {% include 'partials/aboutus.html' %}
+    {% endblock aboutus %}
+
+    {% block websiteDescription %}
+        {% include 'partials/websiteDescription.html' %}
+    {% endblock websiteDescription %}
+
+    {% block pricing %}
+        {% include 'partials/pricing.html' %}
+    {% endblock pricing %}
+
+    {% block process %}
+        {% include 'partials/process.html' %}
+    {% endblock process %}
+
+    {% block getStarted %}
+        {% include 'partials/getStarted.html' %}
+    {% endblock getStarted %}
+
+    {% block contactForm %}
+        {% include 'partials/contactForm.html' %}
+    {% endblock contactForm %}
+
+    {% block footer %}
+        {% include 'partials/footer.html' %}
+    {% endblock footer %}
+
+
+    <!-- javascript -->
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/smooth-scroll.polyfills.min.js' %}"></script>
+    <script src="{% static 'js/gumshoe.polyfills.min.js' %}"></script>
+
+    {% block extra_js %}
+    {% endblock extra_js %}
+    
+    <script src="{% static 'js/app.js' %}"></script>
+</body>
+
+</html>
