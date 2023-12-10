@@ -11,3 +11,4 @@ python-dotenv
 faiss-cpu
 langchain-experimental
 gunicorn
+whitenoise
