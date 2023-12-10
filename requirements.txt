@@ -12,3 +12,4 @@ faiss-cpu
 langchain-experimental
 gunicorn
 whitenoise
+pandas

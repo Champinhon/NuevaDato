@@ -66,31 +66,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div style="width: 800px;"><canvas id="acquisitions"></canvas></div>
-                                    <!-- <script type="module" src="dimensions.js"></script> -->
-                                    <script type="module" src="acquisitions.js"></script>
-                                      <script>
-                                        const ctx = document.getElementById('myChart');
-                                      
-                                        new Chart(ctx, {
-                                          type: 'bar',
-                                          data: {
-                                            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                                            datasets: [{
-                                              label: '# of Votes',
-                                              data: [12, 19, 3, 5, 2, 3],
-                                              borderWidth: 1
-                                            }]
-                                          },
-                                          options: {
-                                            scales: {
-                                              y: {
-                                                beginAtZero: true
-                                              }
-                                            }
-                                          }
-                                        });
-                                      </script>
+                                    
+                                    </script>
                                     <div class="container">
                                         <button type="button" class="btn btn-primary">
                                             <a href="{% url 'upload_file' %}" class="nav-link">Subir archivo</a>
