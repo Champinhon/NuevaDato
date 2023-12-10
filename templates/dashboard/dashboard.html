@@ -44,6 +44,16 @@
                                     <button type="submit" class="btn btn-primary">Hacer Pregunta</button>
                                 </form>
                             </div>
+                            {% if response_pdf %}
+                            <h3>Respuesta PDF:</h3>
+                            <p>{{ response_pdf.response }}</p>
+                            {% elif response_csv %}
+                            <h3>Respuesta CSV:</h3>
+                            <p>{{ response_csv }}</p>
+                            {% elif response_excel %}
+                            <h3>Respeuesta Excel:</h3>
+                            <p>{{ response_excel | safe }}</p>
+                            {% endif %}
                             <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script>
                             <canvas id="chart"></canvas>
                             <script>
