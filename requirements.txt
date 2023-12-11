@@ -16,4 +16,4 @@ pandas
 matplotlib
 tabulate
 xlrd
-mysqlclient?
+mysqlclient

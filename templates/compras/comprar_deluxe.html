@@ -29,7 +29,29 @@
                 <div class="col-lg-8">
                     <div class="card account-card">
                         <div class="card-body">
-                            
+                            <h3>Plan deluxe</h3>
+                            <p>$20 USD</p>
+                            <div id="paypal-button-container-P-5T699891U91290030MV3WE4I"></div>
+                            <script src="https://www.paypal.com/sdk/js?client-id=AVSZKoKtrHfZxsLtJnHZKuFIQYAUD8MT_6VK3zT2NgwC6gcD3Gq-FjRkYERek_Par6KrCQB2isyhoGX3&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+                            <script>
+                            paypal.Buttons({
+                                style: {
+                                    shape: 'rect',
+                                    color: 'black',
+                                    layout: 'vertical',
+                                    label: 'subscribe'
+                                },
+                                createSubscription: function(data, actions) {
+                                    return actions.subscription.create({
+                                    /* Creates the subscription */
+                                    plan_id: 'P-5T699891U91290030MV3WE4I'
+                                    });
+                                },
+                                onApprove: function(data, actions) {
+                                    alert(data.subscriptionID); // You can add optional success message for the subscriber here
+                                }
+                            }).render('#paypal-button-container-P-5T699891U91290030MV3WE4I'); // Renders the PayPal button
+                            </script>
                         </div>
                     </div>
                 </div>
