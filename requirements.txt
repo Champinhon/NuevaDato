@@ -1,5 +1,5 @@
-django
-Django
+django==3.2
+Django==3.2
 openai
 langchain
 xhtml2pdf

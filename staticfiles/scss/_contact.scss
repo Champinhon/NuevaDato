@@ -1,0 +1,65 @@
+//
+// contact.scss
+//
+
+textarea.form-control {
+    height: auto !important;
+}
+
+.form-control {
+    margin-bottom: 15px;
+    box-shadow: none !important;
+    height: 50px;
+    padding-left: 20px;
+    // border: 1px solid var(--bs-border-color);
+    font-size: 14px;
+    background-color: var(--bs-body-bg);
+
+    &:focus {
+        border-color: #ccc;
+        background-color: var(--bs-body-bg);
+    }
+}
+.form {
+    background-color: var(--bs-footer-bg);
+}
+
+textarea.form-control {
+    height: auto;
+    padding-top: 13.5px;
+}
+
+// contact social
+
+.contact-social {
+    padding: 20px 0px;
+
+    .social-icon {
+        border: 2px solid #afb5bd;
+        border-radius: 50%;
+        color: #afb5bd;
+        width: 48px;
+        height: 48px;
+        display: block;
+        font-size: 19px;
+        line-height: 44px;
+        text-align: center;
+    }
+
+    .contact-title {
+        font-size: 20px;
+    }
+}
+
+.error_message {
+    padding: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+#success_page {
+    background-color: rgba($success, 0.25);
+    padding: 10px 20px;
+    border-radius: 4px;
+}

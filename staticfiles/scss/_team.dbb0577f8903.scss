@@ -1,0 +1,17 @@
+//
+// team.scss
+//
+
+.team-box {
+  border-bottom: 1px solid var(--bs-border-color);
+  .team-name {
+    font-size: 16px;
+    padding-top: 20px;
+    margin-bottom: 7px;
+  }
+
+  .team-designation {
+    font-size: 13px;
+    color: #a8aeb4;
+  }
+}

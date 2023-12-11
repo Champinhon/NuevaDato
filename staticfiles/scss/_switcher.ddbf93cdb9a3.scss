@@ -1,0 +1,172 @@
+//
+// switcher.scss
+//
+
+#style-switcher div h3 {
+  font-size: 16px;
+  margin: 8px 3px 12px;
+}
+
+#style-switcher {
+  background: none repeat scroll 0 0 #ffff;
+  box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.08);
+  left: -168px;
+  position: fixed;
+  top: 25%;
+  width: 167px;
+  z-index: 9999;
+}
+
+#style-switcher div {
+  padding: 5px 10px;
+}
+
+#style-switcher .bottom {
+  background: none repeat scroll 0 0 #ffffff;
+  color: $dark;
+  padding: 0;
+  position: relative;
+}
+
+#style-switcher .bottom a.settings {
+  background: none repeat scroll 0 0 var(--bs-switcher-bg);
+  box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.08);
+  display: inline-block;
+  height: 40px;
+  position: absolute;
+  right: -41px;
+  top: -50px;
+  width: 40px;
+  padding: 3px;
+  font-size: 22px;
+  text-align: center;
+}
+
+#style-switcher .bottom a.mode-btn {
+  position: fixed;
+  left: 0;
+  z-index: 1021;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  background-color: var(--bs-switcher-bg);
+  font-size: 21px;
+  text-align: center;
+  border-radius: 0;
+  padding: 3px;
+
+  .mode-light {
+    display: inline-block;
+  }
+
+  .mode-dark {
+    display: none;
+  }
+}
+
+#style-switcher .bottom a {
+  text-decoration: none;
+}
+
+#style-switcher .bottom a.settings i {
+  color: $white;
+}
+
+ul.pattern {
+  list-style: none outside none;
+  margin: 0 0 0px;
+  overflow: hidden;
+  padding: 0;
+  border-radius: 0px;
+}
+
+ul.pattern li {
+  float: left;
+  margin: 2px;
+}
+
+ul.pattern li a {
+  cursor: pointer;
+  display: block;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  margin: 5px;
+}
+
+ul.pattern .color1 {
+  background-color: #fb3e3e;
+}
+
+ul.pattern .color2 {
+  background-color: #1bbc9d;
+}
+
+ul.pattern .color3 {
+  background-color: #f85f89;
+}
+
+ul.pattern .color4 {
+  background-color: #00e6e6;
+}
+
+ul.pattern .color5 {
+  background-color: #704fff;
+}
+
+ul.pattern .color6 {
+  background-color: #2762da;
+}
+
+ul.pattern .color7 {
+  background-color: #f09105;
+}
+
+ul.pattern .color8 {
+  background-color: #f6cb42;
+}
+
+.mode-btn {
+  .mode-light {
+    display: inline-block;
+  }
+
+  .mode-dark {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 479px) {
+  #style-switcher {
+    display: none;
+  }
+}
+
+[data-bs-theme="dark"] {
+  .mode-btn {
+    .mode-light {
+      display: none !important;
+    }
+
+    .mode-dark {
+      display: inline-block !important;
+    }
+  }
+
+  #style-switcher {
+    background-color: var(--bs-icon-bg);
+    border: transparent;
+
+    div h3 {
+      font-size: 16px;
+      margin: 8px 3px 12px;
+      color: var(--bs-body-color);
+    }
+  }
+}
+
+[dir="rtl"] {
+  .mode-btn {
+    right: 0px;
+  }
+}

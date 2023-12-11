@@ -1,0 +1,24 @@
+//
+// services.scss
+//
+
+.services-box {
+  padding: 15px;
+  i {
+    font-size: 32px;
+    height: 68px;
+    width: 68px;
+    background-color: var(--bs-icon-bg)!important;
+    border-radius: 50%;
+    box-shadow: 0 0 1.25rem rgba(108, 118, 134, 0.1) !important;
+    line-height: 68px;
+    margin-bottom: 15px;
+  }
+  &:hover {
+    i {
+      color: $white !important;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+}
+
