@@ -27,15 +27,15 @@ from langchain.agents.agent_types import AgentType
 from langchain.chat_models import ChatOpenAI
 from langchain.llms import OpenAI
 from langchain.agents.agent_types import AgentType
-from langchain_experimental.agents.agent_toolkits import create_csv_agent
+from langchain_experimental.agents.agent_toolkits import create_csv_agent, create_pandas_dataframe_agent
 
 openai.api_key = "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"
 
 os.environ["OPENAI_API_KEY"] = "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"
+
 def get_response_pdf(request, prompt_question, pdf_url):
     if request.method == 'POST':
         response = requests.get(pdf_url)
-
         if response.status_code == 200:
             pdf_data = BytesIO(response.content)
 
@@ -45,7 +45,6 @@ def get_response_pdf(request, prompt_question, pdf_url):
                 text = page.extract_text()
                 if text:
                     raw_text += text
-
             textsplitter = CharacterTextSplitter(
                 separator="\n",
                 chunk_size=1000,
@@ -53,12 +52,10 @@ def get_response_pdf(request, prompt_question, pdf_url):
                 length_function=len
             )
             texts = textsplitter.split_text(raw_text)
-
             embeddings = OpenAIEmbeddings()
             docsearch = FAISS.from_texts(texts, embeddings)
             chain = load_qa_chain(OpenAI(), chain_type='stuff')
             docs = docsearch.similarity_search(prompt_question)
-
             response_text = chain.run(input_documents=docs, question=prompt_question)
 
             return JsonResponse({'response': response_text})
@@ -155,6 +152,7 @@ def download_csv_from_url(url, local_filename):
         with open(local_filename, 'wb') as csv_file:
             csv_file.write(response.content)
 
+    return redirect('index')
 
 def dashboard_view(request):
     archivo_url = request.session.get('archivo_url')
@@ -166,21 +164,20 @@ def dashboard_view(request):
             response = get_response_pdf(request, prompt_question, archivo_url)
             content = response.content.decode('utf-8')
             response_data = json.loads(content)
-            context = {'prompt_question': prompt_question, 'response_pdf': response_data}
+            context = {'prompt_question': prompt_question, 'response_pdf': response_data }
         elif ('csv') in archivo_url:
             print("CSV")
             prompt_question = request.POST['prompt_question']
             response_data = get_response_csv(request, prompt_question, archivo_url)
-            context = {'prompt_question': prompt_question, 'response_csv': response_data}
+            context = {'prompt_question': prompt_question, 'response_csv': response_data }
+            print(context)
         elif ('xls') in archivo_url:
             print("XLS")
             prompt_question = request.POST['prompt_question']
             response_data = get_response_xlsx(request, prompt_question, archivo_url)
             download_csv_from_url(archivo_url, 'local.csv')
             print("CSV")
-            df = pd.read_csv('local.csv', encoding = "ISO-8859-1", on_bad_lines='skip')
-            print(df.to_numpy())
-            context = {'prompt_question': prompt_question, 'response_excel': response_data}
+            context = {'prompt_question': prompt_question, 'response_excel': response_data }
             print(context)
         return render(request, 'dashboard/dashboard.html', context)
     else:

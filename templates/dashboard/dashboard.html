@@ -51,34 +51,10 @@
                             <h3>Respuesta CSV:</h3>
                             <p>{{ response_csv }}</p>
                             {% elif response_excel %}
-                            <h3>Respeuesta Excel:</h3>
+                            <h3>Respuesta Excel:</h3>
                             <p>{{ response_excel | safe }}</p>
                             {% endif %}
-                            <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script>
-                            <canvas id="chart"></canvas>
-                            <script>
-                                let ctx = document.getElementById("chart").getContext("2d");
-                                let chart = new Chart(ctx, {
-                                type: "bar",
-                                data: {
-                                labels: ["2020/Q1", "2020/Q2", "2020/Q3", "2020/Q4"],
-                                datasets: [
-                                    {
-                                    label: "Gross volume ($)",
-                                    backgroundColor: "#79AEC8",
-                                    borderColor: "#417690",
-                                    data: [26900, 28700, 27300, 29200]
-                                    }
-                                ]
-                                },
-                                options: {
-                                title: {
-                                    text: "Gross Volume in 2020",
-                                    display: true
-                                }
-                                }
-                                });
-                            </script>
+
                             <div class="container">
                                 <button type="button" class="btn btn-primary">
                                     <a href="{% url 'upload_file' %}" class="nav-link">Subir archivo</a>
