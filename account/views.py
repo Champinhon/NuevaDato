@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import ArchivoForm
 from django.shortcuts import render, redirect
 from django.conf import settings
-from django.http import JsonResponse
+from django.http import JsonResponse, FileResponse, HttpResponse
 
 #Python
 import os
@@ -81,7 +81,6 @@ def get_response_xlsx(request, prompt_question, xls_url):
     response = requests.get(xls_url)
     if response.status_code == 200:
         xls_data = BytesIO(response.content)
-        
         df = pd.read_excel(xls_data)
         csv_path = 'temp_file.csv'
         df.to_csv(csv_path, index=False)
@@ -157,6 +156,9 @@ def download_csv_from_url(url, local_filename):
 def dashboard_view(request):
     archivo_url = request.session.get('archivo_url')
     print(archivo_url)
+    uploaded_filename = None  # Inicializa la variable del nombre de archivo
+    if archivo_url:
+        uploaded_filename = os.path.basename(archivo_url) 
     if request.method == 'POST':
         if ('pdf') in archivo_url:  
             print("PDF")    
@@ -164,12 +166,12 @@ def dashboard_view(request):
             response = get_response_pdf(request, prompt_question, archivo_url)
             content = response.content.decode('utf-8')
             response_data = json.loads(content)
-            context = {'prompt_question': prompt_question, 'response_pdf': response_data }
+            context = {'prompt_question': prompt_question, 'response_pdf': response_data,'uploaded_filename': uploaded_filename }
         elif ('csv') in archivo_url:
             print("CSV")
             prompt_question = request.POST['prompt_question']
             response_data = get_response_csv(request, prompt_question, archivo_url)
-            context = {'prompt_question': prompt_question, 'response_csv': response_data }
+            context = {'prompt_question': prompt_question, 'response_csv': response_data,'uploaded_filename': uploaded_filename }
             print(context)
         elif ('xls') in archivo_url:
             print("XLS")
@@ -177,7 +179,7 @@ def dashboard_view(request):
             response_data = get_response_xlsx(request, prompt_question, archivo_url)
             download_csv_from_url(archivo_url, 'local.csv')
             print("CSV")
-            context = {'prompt_question': prompt_question, 'response_excel': response_data }
+            context = {'prompt_question': prompt_question, 'response_excel': response_data,'uploaded_filename': uploaded_filename }
             print(context)
         return render(request, 'dashboard/dashboard.html', context)
     else:
@@ -207,3 +209,11 @@ def upload_file(request):
 
     return render(request, 'dashboard/upload.html', {'form': form})
 
+
+
+def comprar_economica(request):
+    return render(request,"compras/comprar_economica.html")
+def comprar_deluxe(request):
+    return render(request,"compras/comprar_deluxe.html")
+def comprar_maxima(request):
+    return render(request,"compras/comprar_maxima.html")

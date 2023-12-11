@@ -15,3 +15,5 @@ whitenoise
 pandas
 matplotlib
 tabulate
+xlrd
+mysqlclient?
