@@ -29,9 +29,9 @@ from langchain.llms import OpenAI
 from langchain.agents.agent_types import AgentType
 from langchain_experimental.agents.agent_toolkits import create_csv_agent, create_pandas_dataframe_agent
 
-openai.api_key = "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"
+openai.api_key = ""
 
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = ""
 
 def get_response_pdf(request, prompt_question, pdf_url):
     if request.method == 'POST':
