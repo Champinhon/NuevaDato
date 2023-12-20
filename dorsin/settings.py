@@ -80,12 +80,7 @@ WSGI_APPLICATION = 'dorsin.wsgi.application'
 
 DATABASES = {
 	'default': {
-		'ENGINE': 'django.db.backends.mysql',
-		'NAME': 'nuevadato',
-		'USER': 'admin',
-		'PASSWORD': 'al9ZigZC',
-		'HOST':'mysql-157534-0.cloudclusters.net',
-		'PORT':'10033',
+
 	}
 }
 
