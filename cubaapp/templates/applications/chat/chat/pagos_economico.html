@@ -1,0 +1,71 @@
+{% load static %}
+{% load sass_tags %}
+<style>
+  .custom-width-input {
+    width: 80%;
+  }
+
+  .message-content table {
+    width: auto;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .custom-table-class {
+    overflow-x: auto;
+  }
+
+  code {
+    white-space: pre-wrap;
+    display: block;
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .paypal-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .sidebar {
+    width: 20%;
+    background-color: #f0f0f0;
+    padding: 20px;
+    margin-left: 20px;
+    text-align: center;
+  }
+</style>
+
+<div class="{{layout}}">
+  <div class="paypal-container">
+    <!-- Your template using the PayPal button -->
+    <div id="paypal-button-container-P-6U8476870T721400MMV3WDDQ" class="paypal-button"></div>
+    <script src="https://www.paypal.com/sdk/js?client-id=AVSZKoKtrHfZxsLtJnHZKuFIQYAUD8MT_6VK3zT2NgwC6gcD3Gq-FjRkYERek_Par6KrCQB2isyhoGX3&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+    <script>
+      paypal.Buttons({
+          style: {
+              shape: 'rect',
+              color: 'black',
+              layout: 'vertical',
+              label: 'subscribe'
+          },
+          createSubscription: function(data, actions) {
+            return actions.subscription.create({
+              /* Creates the subscription */
+              plan_id: 'P-6U8476870T721400MMV3WDDQ'
+            });
+          },
+          onApprove: function(data, actions) {
+            alert(data.subscriptionID); // You can add optional success message for the subscriber here
+          }
+      }).render('#paypal-button-container-P-6U8476870T721400MMV3WDDQ'); // Renders the PayPal button
+    </script>
+  </div>
+  
+  <div class="sidebar">
+    <p>Precio: $10 USD</p>
+  </div>
+</div>

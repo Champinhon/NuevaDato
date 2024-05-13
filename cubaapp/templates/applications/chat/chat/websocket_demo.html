@@ -1,0 +1,9 @@
+<div class="chat-log">hola</div>
+<script>
+  const chatSocket = new WebSocket('ws://' + window.location.host + '/ws/stream/');
+
+chatSocket.onmessage = function(e) {
+    let data = JSON.parse(e.data);
+    console.log(data.chunk);
+};
+</script>   

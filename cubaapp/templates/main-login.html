@@ -1,0 +1,46 @@
+{% extends 'base-other-page.html' %}
+{% load static %}
+{% load sass_tags %}
+{% load widget_tweaks %}
+{% block content %}
+
+<div class="row m-0">
+    <div class="col-12 p-0">    
+      <div class="login-card">
+        <div>
+          <div><a class="logo" href="#"><img class="img-fluid for-light" src="{% static 'assets/images/favicon.png' %}" alt="looginpage"><img class="img-fluid for-dark" src="{% static 'assets/images/favicon.png' %}" alt="looginpage"></a></div>
+          <div class="login-main"> 
+            <form class="theme-form" method='post'>
+                {% csrf_token %}
+              <h4>Iniciar sesión</h4>
+              <p>Ingresa tu nombre de usuario y contraseña</p>
+              <div class="form-group">
+                <label class="col-form-label">Nombre de usuario</label>
+                {{ form.username|add_class:'form-control' }}
+              </div>
+              <div class="form-group">
+                <label class="col-form-label">Contraseña</label>
+                <div class="form-input position-relative">
+                    {{ form.password|add_class:'form-control' }}                 
+                </div>
+              </div>
+              <div class="form-group mb-0">
+                <div class="checkbox p-0">
+                  <input id="checkbox1" type="checkbox">
+                  <label class="text-muted" for="checkbox1">Recordar contraseña</label>
+                </div><a class="link" href="forget-password.html">¿Olvidaste tu contraseña?</a>
+                <div class="text-end mt-3">
+                  <button class="btn btn-primary btn-block w-100" type="submit">Iniciar sesión</button>
+                </div>
+              </div>
+              <!--<p class="mt-4 mb-0 text-center">¿No tienes cuenta?<a class="ms-2" href="signup_home">Crear cuenta</a></p>-->
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
+{% block scriptscontent %}
+{% endblock %}
